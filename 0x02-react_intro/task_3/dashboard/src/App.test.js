@@ -1,12 +1,13 @@
 import React from "react";
 import { shallow } from "enzyme";
+import logo from './holberton_logo.jpg';
 import App from "./App";
 import { getFullYear, getFooterCopy } from "./utils";
 
 describe("App components", () => {
   it("renders the App without crashing", () => {
-    const wrapper = shallow(<App />);
-  )};
+    shallow(<App />);
+  });
 
   it("renders the div with the class App-header", () => {
     const wrapper = shallow((

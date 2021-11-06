@@ -40,4 +40,5 @@ it("returns correct string when function is called", () => {
   act(() => {
     render(getLatestNotification(), container);
     expect(container.textContent).toBe("<strong>Urgent requirement</strong> - complete by EOD");
+  });
 });
