@@ -6,10 +6,10 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
     <div className="root-notifications">
       <Notifications />
     </div>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
