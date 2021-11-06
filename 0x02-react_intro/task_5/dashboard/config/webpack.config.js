@@ -1,22 +1,17 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './js/dashboard_main.js',
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
   },
   devtool: inline-source-map,
   plugins: [
     new HtmlWebpackPlugin({
+      name: 'index.html',
       title: 'Hot Module Replacement',
     }),
-    new CleanWebpackPlugin(),
   ],
   module: {
     rules: [
@@ -39,8 +34,7 @@ module.exports = {
   mode: 'development',
   devServer: {
     compress: true,
-    contentBase: './public',
-    port: 8564,
-    hit: true,
+    contentBase: './dist',
+    hot: true,
   },
 };
