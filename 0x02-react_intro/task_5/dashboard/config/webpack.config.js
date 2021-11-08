@@ -9,8 +9,9 @@ module.exports = {
   devtool: inline-source-map,
   plugins: [
     new HtmlWebpackPlugin({
-      name: 'index.html',
+      inject: false,
       title: 'Hot Module Replacement',
+      template: './dist/index.html'
     }),
   ],
   module: {
@@ -18,19 +19,26 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-	  'style-loader',
-	  'css-loader'
-	],
+	        'style-loader',
+	        'css-loader'
+	      ],
       },
       {
-	test: /\.(png|svg|jpg|jpeg|gif)$/i,
-	use: [
-	  'file-loader',
-    {
-      loader: 'image-webpack-loader',
-    }
-	],
+	      test: /\.(png|svg|jpg|jpeg|gif)$/i,
+	      use: [
+	        'file-loader',
+          {
+            loader: 'image-webpack-loader',
+          },
+	      ],
       },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: [
+          'babel-loader'
+        ],
+       }, 
     ],
   },
   mode: 'development',
@@ -38,5 +46,8 @@ module.exports = {
     compress: true,
     contentBase: './dist',
     hot: true,
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
   },
 };
