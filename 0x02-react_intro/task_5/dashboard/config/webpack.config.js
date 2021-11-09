@@ -6,7 +6,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
   },
-  devtool: inline-source-map,
+  devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       inject: false,
