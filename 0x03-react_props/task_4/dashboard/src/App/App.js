@@ -4,9 +4,10 @@ import Login from '../Login/Login.js';
 import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
 import PropTypes from 'prop-types';
+import CourseList from '../CourseList/CourseList.js';
 
 
-function App() {
+function App({ isLoggedIn }) {
   return (
     <>
       <Notifications />
@@ -22,7 +23,7 @@ App.propTypes = {
 };
 
 App.defaultProps = {
-  isLoggedIn: false
+  isLoggedIn: false,
 };
 
 export default App;

@@ -6,37 +6,39 @@ import { getLatestNotification } from "../utils/utils.js";
 import PropTypes from 'prop-types';
 
 
-function Notifications({ displayDrawer }) {
+const Notifications = ({ displayDrawer }) => {
   return (
-    { displayDrawer &&
-    <div className='menuItem'>
-      <p>Your notifications</p>
-    </div>
-    }
-    <div className="Notifications">
-      <p>
-        Here is the list of notifications
-      </p>
-      <ul>
-        <NotificationItem type="default" value='New courses available' />
-        <NotificationItem type="urgent" value='New resume available' />
-        <NotificationItem type="urgent" html={{__html: getLatestNotification()}} />
-      </ul>
-      <button style={{ position: "absolute", top: "1rem", right: "1rem" }}
-        aria-label="Close"
-        onClick={() => console.log('Close button has been clicked')}>
-        <img alt="close-icon" src={closeImg} width="10px" height="10px"/>
-      </button>
-    </div>
+    <>
+      <div className='menuItem'>
+        <p>Your notifications</p>
+      </div>
+      { displayDrawer && (
+        <div className="Notifications">
+          <p>
+            Here is the list of notifications
+          </p>
+          <ul>
+            <NotificationItem type="default" value='New courses available' />
+            <NotificationItem type="urgent" value='New resume available' />
+            <NotificationItem type="urgent" html={{__html: getLatestNotification()}} />
+          </ul>
+          <button style={{ position: "absolute", top: "1rem", right: "1rem" }}
+            aria-label="Close"
+            onClick={() => console.log('Close button has been clicked')}>
+            <img alt="close-icon" src={closeImg} width="10px" height="10px"/>
+          </button>
+        </div>
+      )}
+    </>
   );
 }
 
 Notifications.propTypes = {
-  displayDrawer: PropTypes.boolean
+  displayDrawer: PropTypes.bool
 };
 
 Notifications.defaultProps = {
-  displayDrawer: false
+  displayDrawer: false,
 };
 
 

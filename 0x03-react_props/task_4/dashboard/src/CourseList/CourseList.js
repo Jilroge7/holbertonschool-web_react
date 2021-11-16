@@ -5,7 +5,7 @@ import CourseListRow from './CourseListRow.js';
 function CourseList() {
   return (
     <table id='CourseList'>
-      <thead>
+      <thead className="table-title">
         <CourseListRow textFirstCell="Available Courses" isHeader={true} />
         <CourseListRow textFirstCell="CourseName" textSecondCell="Credit" isHeader={true} />
       </thead>
