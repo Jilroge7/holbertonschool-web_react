@@ -11,12 +11,7 @@ function App() {
     <>
       <Notifications />
       <Header />
-      { isLoggedIn &&
-        <CourseList />
-      }
-      { !isLoggedIn &&
-        <Login />
-      }
+      { isLoggedIn ? <CourseList /> : <Login /> }
       <Footer />
     </> 
   );

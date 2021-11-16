@@ -3,9 +3,16 @@ import './Notifications.css';
 import NotificationItem from './NotificationItem.js';
 import closeImg from '../assets/close-icon.png';
 import { getLatestNotification } from "../utils/utils.js";
+import PropTypes from 'prop-types';
 
-function Notifications() {
+
+function Notifications({ displayDrawer }) {
   return (
+    { displayDrawer &&
+    <div className='menuItem'>
+      <p>Your notifications</p>
+    </div>
+    }
     <div className="Notifications">
       <p>
         Here is the list of notifications
@@ -23,5 +30,14 @@ function Notifications() {
     </div>
   );
 }
+
+Notifications.propTypes = {
+  displayDrawer: PropTypes.boolean
+};
+
+Notifications.defaultProps = {
+  displayDrawer: false
+};
+
 
 export default Notifications;
