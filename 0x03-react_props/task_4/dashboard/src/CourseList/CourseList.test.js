@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import CourseListRow from './CourseListRow.js';
+import CourseList from './CourseList.js';
 
 describe('CourseList component', () => {
   it('renders the CourseList with crashing', () => {

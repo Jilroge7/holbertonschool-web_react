@@ -23,4 +23,14 @@ describe("App components", () => {
   it("renders the Footer without crashing", () => {
     shallow(<Footer />);
   });
+  it("does not display CourseList when loggedIn is false", () => {
+    
+  })
 });
+
+describe("CourseList component", () => {
+  it("CourseList displayed properly", () => {
+    shallow(<CourseList />);
+  });
+  it
+})
