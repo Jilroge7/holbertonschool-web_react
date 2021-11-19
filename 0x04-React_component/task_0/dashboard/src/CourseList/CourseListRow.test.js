@@ -5,25 +5,16 @@ import CourseList from './CourseList';
 
 describe('CourseList component', () => {
   it('renders the CourseListRow table elements without crashing', () => {
-    const wrapper = shallow(<CourseListRow />);
-    { isHeader && textSecondCell === null && (
-      expect(wrapper.html().toContain(`<th colSpan={2}>{textFirstCell}</th>`))
-    )};  
+    const wrapper = shallow(<CourseListRow isHeader={true} textSecondCell='null' textFirstCell='test'/>);
+    expect(wrapper.find(CourseListRow)).toHaveLength(0);
   });
   it('renders the CourseListRow table elements with crashing', () => {
-    const wrapper = shallow(<CourseListRow />);
-    { isHeader && textSecondCell !== null && (
-      expect(wrapper.html().toContain(`<>
-            <th>{textFirstCell}</th>
-            <th>{textSecondCell}</th></>`))
-    )};  
+    const wrapper = shallow(<CourseListRow isHeader={true} textFirstCell='test' textSecondCell='test'/>);
+    expect(wrapper.html()).toContain('<th>test</th>');  
   });
   it('renders the CourseListRow table elements with crashing', () => {
-    const wrapper = shallow(<CourseListRow />);
-    { !isHeader && (
-      expect(wrapper.html().toContain(`<>
-            <td>{textFirstCell}</td>
-            <td>{textSecondCell}</td></>`))
-    )};  
+    const wrapper = shallow(<CourseListRow isHeader={false} textFirstCell=''/>);
+    expect(wrapper.find(CourseListRow)).toHaveLength(0);
+
   });
 });
