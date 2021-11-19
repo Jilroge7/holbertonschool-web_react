@@ -1,5 +1,5 @@
+import { StyleSheet, css } from 'aphrodite';
 import React from 'react';
-import './Notifications.css';
 import NotificationItem from './NotificationItem.js';
 import closeImg from '../assets/close-icon.png';
 import { getLatestNotification } from "../utils/utils.js";
@@ -10,18 +10,18 @@ import NotificationItemShape from './NotificationItemShape.js';
 const Notifications = ({ displayDrawer, listNotifications }) => {
   return (
     <>
-      <div className='menuItem'>
+      <div className='menuItem' style={css(styles.menuItem)}>
         <p>Your notifications</p>
       </div>
       { displayDrawer && (
-        <div className="Notifications">
+        <div style={css(styles.notifications)}>
           <p>
             Here is the list of notifications
           </p>
           <ul>
             { listNotifications.length > 0
               ? listNotifications.map(({ type, value, html, id }) => (
-                <NotificationItem type={type} value={value} html={html} key={id} />
+                <NotificationItem type={type} style={css(styles.{type})} value={value} html={html} key={id} />
               ))
               : <NotificationItem value='No new notification for now' />
             }
@@ -47,5 +47,27 @@ Notifications.defaultProps = {
   listNotifications: []
 };
 
+const styles = StyleSheet.create({
+  notifications: {
+    border: 'dashed #ec4242',
+    padding: '0.40rem',
+    float: 'right',
+    width: '30%'
+  },
+
+  menuItem: {
+    display: flex;
+    justifyContent: 'flex-end',
+    paddingRight: '0.5rem'
+  },
+
+  default: {
+    color: 'blue'
+  },
+
+  urgent: {
+    color: 'red'
+  },
+});
 
 export default Notifications;

@@ -8,6 +8,7 @@ import Footer from '../Footer/Footer.js';
 import CourseList from '../CourseList/CourseList.js';
 
 
+
 describe("App components", () => {
   it("renders the App without crashing", () => {
     shallow(<App />);
