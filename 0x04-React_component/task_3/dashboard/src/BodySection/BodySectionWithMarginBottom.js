@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const BodySectionWithMarginBottom = (props) => {
   return (
-    <div className="bodySectionWithMargin"
+    <div className="bodySectionWithMargin">
       <BodySection {...props} />
     </div>
   )
@@ -15,4 +15,4 @@ BodySectionWithMarginBottom.PropTypes = {
   title: PropTypes.string,
   children: PropTypes.element
 }
-export default bodySectionWithMargin
+export default BodySectionWithMarginBottom
