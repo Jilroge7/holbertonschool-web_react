@@ -11,7 +11,7 @@ const BodySectionWithMarginBottom = (props) => {
   )
 }
 
-BodySectionWithMarginBottom.PropTypes = {
+BodySectionWithMarginBottom.propTypes = {
   title: PropTypes.string,
   children: PropTypes.element
 }
