@@ -1,23 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 
-function NotificationItem({ type, html, value }) {
-  return (
-    <li data-notification-type={type} style={css(styles.{type})} dangerouslySetInnerHTML={html}>{value}</li>
-  );
+class NotificationItem extends React.PureComponent {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const {type, html, value, markAsRead, id } = this.props;
+    return (
+      <>
+        <li onClick={() => markAsRead(id)} className={type === 'default' ? css(styles.default) : css(styles.urgent)} data-notification-type={type} dangerouslySetInnerHTML={html}>{value}</li>
+      </>
+    );
+  }
 }
 
 NotificationItem.propTypes =  {
   type: PropTypes.string.isRequired,
   value: PropTypes.string,
-  html: PropTypes.shape({
-    __html: PropTypes.string
+  markAsRead: PropTypes.func,
+  id: PropTypes.number,
+  __html: PropTypes.shape({
+    html: PropTypes.string
   })
 };
 
 NotificationItem.defaultProps = {
-  type: 'default'
+  type: 'default',
+  markAsRead: () => {}
 };
 
 const styles = StyleSheet.create({

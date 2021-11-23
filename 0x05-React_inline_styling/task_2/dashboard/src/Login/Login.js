@@ -3,14 +3,14 @@ import React from 'react';
 
 function Login() {
   return (
-    <body style={css(styles.appBody)}>
+    <body className={css(styles.appBody)}>
       <p>
       Login to access the full dashboard
       </p>
       <label htmlFor="email">Email: </label>
-      <input type="email" id="email" style={css(styles.email)} name="email" />
+      <input type="email" id="email" className={css(styles.email)} name="email" />
       <label htmlFor="password">Password: </label>
-      <input type="password" id="password" style={css(styles.password)} name="password" />
+      <input type="password" id="password" className={css(styles.password)} name="password" />
       <button type="btn">OK</button>
     </body>
   );
