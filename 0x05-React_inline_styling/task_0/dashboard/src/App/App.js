@@ -5,12 +5,33 @@ import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
 import PropTypes from 'prop-types';
 import CourseList from '../CourseList/CourseList.js';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom.js';
+import BodySection from '../BodySection/BodySection.js';
 import { getLatestNotification } from '../utils/utils.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  componentDidMount() {
+    document.addEventListener('keydown', event => {
+      if (event.ctrlKey && event.key === 'h') {
+        alert('Logging you out');
+        this.props.logOut();
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    document.addEventListener('keydown', event => {
+      if (event.ctrlKey && event.key === 'h') {
+        alert('Logging you out');
+        this.props.logOut();
+      }
+    });
+  }
+
   render() {
     const {isLoggedIn} = this.props
     const listCourses = [
@@ -29,7 +50,25 @@ class App extends React.Component {
         <Notifications listNotifications={listNotifications} />
         <div className='App'>
           <Header />
-          { this.props.isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login /> }
+          { isLoggedIn 
+          ? <BodySectionWithMarginBottom title='Course List'>
+              <CourseList listCourses={listCourses} /></BodySectionWithMarginBottom>
+          : <BodySectionWithMarginBottom title='Log in to continue'>
+              <Login /></BodySectionWithMarginBottom>
+          }
+          <BodySection title='News from the School'>
+            <p>Now is the winter of our discontent
+              Made glorious summer by this sun of York;
+              And all the clouds that lour'd upon our house
+              In the deep bosom of the ocean buried.
+              Now are our brows bound with victorious wreaths;
+              Our bruised arms hung up for monuments;
+              Our stern alarums changed to merry meetings,
+              Our dreadful marches to delightful measures.
+              Grim-visaged war hath smooth'd his wrinkled front;
+              And now, instead of mounting barded steeds
+              To fright the souls of fearful adversaries.</p>
+          </BodySection>
           <Footer />
         </div>
       </> 
@@ -38,11 +77,13 @@ class App extends React.Component {
 }  
 
 App.propTypes = {
-  isLoggedIn: PropTypes.bool
+  isLoggedIn: PropTypes.bool,
+  logOut: PropTypes.func
 };
 
 App.defaultProps = {
   isLoggedIn: false,
+  logOut: () => {}
 };
 
 export default App;
