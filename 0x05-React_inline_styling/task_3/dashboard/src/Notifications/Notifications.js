@@ -23,13 +23,17 @@ class Notifications extends React.Component {
   render() {
     const { displayDrawer, listNotifications } = this.props;
     return (
-      <>
+      <div className={
+        displayDrawer
+          ? css(styles.container, styles.displayOn)
+          : css(styles.container)}
+      >
         <div className={css(styles.menuItem)}>
           <p>Your notifications</p>
         </div>
         { displayDrawer && (
-          <div className={css(styles.notifications)}>
-            <p>
+          <div className={css(styles.notifications, styles.noBox)}>
+            <p className={css(styles.centerText)}>
               Here is the list of notifications
             </p>
             <ul>
@@ -47,7 +51,7 @@ class Notifications extends React.Component {
             </button>
           </div>
         )}
-      </>
+      </div>
     );
   }
 }
@@ -63,6 +67,14 @@ Notifications.defaultProps = {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginTop: '1rem',
+    marginRight: '1rem',
+    gridRow: '1'
+  },
+
   notifications: {
     border: 'dashed #ec4242',
     padding: '0.40rem',
@@ -74,6 +86,24 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'flex-end',
     paddingRight: '0.5rem'
+  },
+
+  displayOn: {
+    '@media (max-width: 990px)': {
+      gridRow: '2'
+    }
+  },
+
+  noBox: {
+    '@media (max-width: 900px)': {
+      border: 'none',
+    }
+  },
+
+  centerText: {
+    '@media (max-width: 900px)': {
+      fontSize: '20px'
+    }
   },
 
   default: {
