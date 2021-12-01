@@ -1,4 +1,4 @@
-const {Map, set} = require ('immutable');
+const { Map, set } = require('immutable');
 
 const map = Map({
   1: 'Liam',
