@@ -10,7 +10,7 @@ const map = Map({
 });
 
 const map2 = map.withMutations((map) => {
-  map.set('2', 'Benjamin').set('4', 'Oliver');
+  map.set(2, 'Benjamin').set(4, 'Oliver');
 });
 console.log(map2);
 
