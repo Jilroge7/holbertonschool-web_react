@@ -2,7 +2,7 @@ import { fromJS, getIn } from 'immutable';
 
 function accessImmutableObject(object, array) {
   const immutableObj = fromJS(object);
-  const nestedVal = immutableObj.getIn(array);
+  const nestedVal = getIn(immutableObj, array);
   return (nestedVal);
 }
 
