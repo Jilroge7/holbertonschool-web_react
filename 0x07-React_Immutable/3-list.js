@@ -1,4 +1,4 @@
-const { List } = require ('immutable');
+import { List } from 'immutable';
 
 function getListObject(array) {
   const listObj = List(array);
@@ -8,6 +8,6 @@ function getListObject(array) {
 function addElementToList(list, element) {
   const newList = list.push(element);
   return (newList);
-}
+};
 
 module.exports = { getListObject, addElementToList };

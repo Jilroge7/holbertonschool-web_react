@@ -1,4 +1,4 @@
-const { Map } =  require('immutable');
+import { Map } from 'immutable';
 
 function getImmutableObject(object) {
   const immutableObj = Map(object);
@@ -6,11 +6,11 @@ function getImmutableObject(object) {
 }
 
 const random = {
-     fear: true,
-     smell: -1033575916.9145899,
-     wall: false,
-     thing: -914767132
-}
+  fear: true,
+  smell: -1033575916.9145899,
+  wall: false,
+  thing: -914767132,
+};
 
 getImmutableObject(random);
 module.exports = getImmutableObject;
