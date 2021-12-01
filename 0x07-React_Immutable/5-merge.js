@@ -12,6 +12,6 @@ function mergeElements(page1, page2) {
   const pageTwo = Map(page2);
   const pageList = pageOne.merge(pageTwo);
   return (pageList);
- }
+}
 
-module.exports = { concatElements, mergeElements};
+module.exports = { concatElements, mergeElements };
