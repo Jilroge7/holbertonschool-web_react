@@ -9,10 +9,6 @@ describe("App components", () => {
   });
   it("renders the div with the text Copyright", () => {
     const wrapper = shallow((<Footer />));
-    expect(wrapper.contains(
-      <footer className="App-footer">
-      Copyright {getFullYear()} - {getFooterCopy(true)}
-      </footer>
-    )).toEqual(true)
+    expect(wrapper.html()).toContain("<footer class=\"App-footer\">Copyright 2021 - Holberton School</footer>")
   });
 });
