@@ -32,8 +32,8 @@ class Notifications extends React.PureComponent {
             </p>
             <ul>
               { listNotifications.length > 0
-                ? listNotifications.map(({ markAsRead, type, value, html, id }) => (
-                  <NotificationItem markAsRead={markAsRead} id={id} type={type} value={value} html={html} key={id} />
+                ? listNotifications.map(({ markNotificationAsRead, type, value, html, id }) => (
+                  <NotificationItem markNotificationAsRead={markNotificationAsRead} id={id} type={type} value={value} html={html} key={id} />
                 ))
                 : <NotificationItem value='No new notification for now' />
               }
