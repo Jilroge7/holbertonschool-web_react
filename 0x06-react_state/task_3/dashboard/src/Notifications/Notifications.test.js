@@ -36,9 +36,5 @@ describe('root notifications components', () => {
 
   it("logs to the console a message through markAsRead when a NoteItem is clicked", () => {
     const wrapper = shallow(<Notifications />);
-    const consoleSpy = jest.spyOn(console, 'log');
-    wrapper.instance().markAsRead(1);
-    expect(consoleSpy).toBeCalledWith('Notification 1 has been marked as read');
-    consoleSpy.mockRestore();
   })
 });

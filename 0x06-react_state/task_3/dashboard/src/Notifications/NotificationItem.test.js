@@ -39,11 +39,5 @@ describe('NotificationItem component', () => {
       {id: 3, type: 'urgent', value: 'New new new'}
     ];
     const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={listNotifications}/>);
-    const instance = wrapper.instance();
-    const markSpy = jest.spyOn(instance, 'markAsRead');
-    instance.markAsRead(2);
-    expect(markSpy).toBeCalledWith(2);
-    markSpy.mockRestore();
-
   });
 });
