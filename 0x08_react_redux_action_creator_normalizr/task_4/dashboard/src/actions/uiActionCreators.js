@@ -4,8 +4,8 @@ export const login = (email, password) => {
   return {
     type: LOGIN,
     user: {
-      email,
-      password
+      email: email,
+      password: password
     },
   };
 }

@@ -3,13 +3,13 @@ import { login, logout, displayNotificationDrawer, hideNotificationDrawer} from 
 
 describe('returns correct description when action is created', () => {
   it('verifies login creates correct action with return value', () => {
-    const returnData = { type: LOGIN, user : { 'test@test.com', 'passwordTest' } };
+    const returnData = { type: LOGIN, user : { email: 'test@test.com', password: 'passwordTest' } };
     const action = login('test@test.com', 'passwordTest')
     expect(action).toEqual(expect.objectContaining(returnData))
   });
 
   it('verifies logout creates correct action with return value', () => {
-    const returnData = { type: LOGIN };
+    const returnData = { type: LOGOUT };
     const action = logout()
     expect(action).toEqual(expect.objectContaining(returnData))
   });
