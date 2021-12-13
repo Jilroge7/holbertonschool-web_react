@@ -3,5 +3,5 @@ export const SET_TYPE_FILTER = 'SET_TYPE_FILTER';
 
 export const NotificationTypeFilters = { 
   DEFAULT: 'DEFAULT',
-  URGENT 'URGENT'
+  URGENT: 'URGENT'
 };
