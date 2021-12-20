@@ -3,10 +3,10 @@ import { markAsRead, setNotificationFilter, fetchNotificationsSuccess } from '..
 
 export const notificationReducerState = {
   notifications: [],
-  filter: "DEFAULT" | "URGENT"
+  filter: "DEFAULT"
 }
 
-export const function noticationReducer(state = notificationReducerState, action) {
+export function noticationReducer(state = notificationReducerState, action) {
   switch (action.type) {
     case FETCH_NOTIFICATIONS_SUCCESS: {
       return action.data.map((attribute) => ({
@@ -18,6 +18,7 @@ export const function noticationReducer(state = notificationReducerState, action
             type: attribute.type,
             value: attribute.value
           }
+        ]
       }))
     }
     case MARK_AS_READ: {
@@ -33,8 +34,10 @@ export const function noticationReducer(state = notificationReducerState, action
     }
     case SET_TYPE_FILTER: {
       return state.map((attribute) => {
-        ...attribute,
-        filter: attribute.filter
+        return {
+          ...attribute,
+          filter: action.filter
+        }
       })
     }
     default:

@@ -35,3 +35,4 @@ describe('test suite for notifications reducer', () => {
     const initialState = notificationReducer(notificationReducerState, fetchNotificationsSuccess());
     expect(initialState).toEqual(data);
   });
+})
