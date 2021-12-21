@@ -6,7 +6,7 @@ export const notificationReducerState = {
   filter: "DEFAULT"
 }
 
-export function noticationReducer(state = notificationReducerState, action) {
+export default function notificationReducer(state = notificationReducerState, action) {
   switch (action.type) {
     case FETCH_NOTIFICATIONS_SUCCESS: {
       return action.data.map((attribute) => ({
@@ -22,15 +22,18 @@ export function noticationReducer(state = notificationReducerState, action) {
       }))
     }
     case MARK_AS_READ: {
-      return state.map((attribute) => {
-        if (attribute.id === action.index) {
-          return {
-            ...attribute,
-            isRead: true
+      return {
+        ...state,
+        notifications: state.notifications.map((attribute) => {
+          if (attribute.id === action.index) {
+            return {
+              ...attribute,
+              isRead: true
+            }
           }
-        }
-        return { ...attribute }
-      })
+          return { ...attribute }
+        })
+      }
     }
     case SET_TYPE_FILTER: {
       return state.map((attribute) => {
