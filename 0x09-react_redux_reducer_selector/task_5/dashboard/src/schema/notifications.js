@@ -10,11 +10,7 @@ const notification = new schema.Entity('notifications', {
   context: message
 })
 
-export default function notificationsNormalizer(data) {
-  const normlizr = normalize(data, [notification])
-  return normlizr
-}
-
+export const normlizr = normalize(jsonData, [notification])
 
 export function getAllNotificationsByUser(userId) {
   const notificationArr = []
